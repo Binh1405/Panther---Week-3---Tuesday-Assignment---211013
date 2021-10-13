@@ -210,20 +210,6 @@ function difference(){
 
 // Define a function that returns a new balance for the next month.
 
-// function newBalance(){
-//     const balance = user.transactionsMonthToDate.reduce((accumulator, currentValue) => {
-//         console.log(currentValue.type)
-//         if(currentValue.type == "deposit"){
-//             return accumulator + currentValue.amount * currentValue.type
-//         } else if (currentValue.type == "withdrawal"){
-//             return accumulator - currentValue.amount * currentValue.type 
-
-//         }
-//     }, 5000)
-//     return balance
-// }
-// console.log(newBalance())
-
 function newBalance() {
     const newBalance = user.transactionsMonthToDate.reduce((accumulator, currentValue) =>
         accumulator + currentValue.amount * (currentValue.type === 'deposit') - currentValue.amount * (currentValue.type === 'withdrawal')
@@ -231,5 +217,31 @@ function newBalance() {
     return newBalance;
   }
   
-  console.log(newBalance());
-  
+//   console.log(newBalance());
+
+// Define a function that returns the sum of the groceries.
+function sumOfGroceries(){
+    const grocery = user.transactionsMonthToDate.reduce((accumulator, currentValue) =>
+    accumulator + currentValue.amount * (currentValue.category === "Groceries"), 0)
+    return grocery;
+}
+// console.log(sumOfGroceries());
+
+// Define a function that returns the sum of the entertainment.
+function sumOfEntertainment(){
+    const entertainment = user.transactionsMonthToDate.reduce((accumulator, currentValue) => 
+    accumulator + currentValue.amount * (currentValue.category === "Entertainment"), 0)
+    return entertainment
+}
+// console.log(sumOfEntertainment())
+
+//Define a function that returns the sum of the travel.
+function sumOfTravel(){
+    const travel = user.transactionsMonthToDate.reduce ((accumulator, currentValue) => 
+    accumulator + currentValue.amount * (currentValue.category === "Travel - Fuel"), 0)
+    return travel;
+}
+// console.log(sumOfTravel())
+
+// Define a function that given a conversion rate of 23000vnd to 1usd returns
+//  if the account spent more usd than vnd was deposited into the account for the month.
