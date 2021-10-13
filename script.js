@@ -245,3 +245,12 @@ function sumOfTravel(){
 
 // Define a function that given a conversion rate of 23000vnd to 1usd returns
 //  if the account spent more usd than vnd was deposited into the account for the month.
+const usdToVND = 23000;
+
+// Define a function that returns an array of new objects where currency is VND and the amount is it's converted amount.
+
+function convert(){
+    const VNDcurrency = user.transactionsMonthToDate.map((el) => el.amount * usdToVND)
+    return VNDcurrency;
+}
+console.log(convert())
